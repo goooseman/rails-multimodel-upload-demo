@@ -34,7 +34,7 @@
           <i class="glyphicon glyphicon-plus glyphicon-white"></i>
           <input type="file" class="form-control"  name="item[uploads_attributes][][upload]" multiple>Select
         </span>
-        <button type="submit" class="btn btn-primary start">
+        <button type="submit" class="btn btn-primary start" onclick="submit()">
               <i class="glyphicon glyphicon-upload glyphicon-white"></i>
               <span>OK</span>
         </button>
@@ -85,7 +85,7 @@
       <td colspan="2"></td>
       {% } %}
       <td class="cancel">{% if (!i) { %}
-        <button class="btn btn-warning">
+        <button class="btn btn-warning" onclick="minus()">
           <i class="icon-ban-circle icon-white"></i>
           <span>{%=locale.fileupload.cancel%}</span>
         </button>
@@ -102,6 +102,15 @@
     var num_added = 0;
     var added = 0;
     var all_data = {};
+    function minus() {
+      num_added--;
+    };
+    function submit() {
+      if (num_added == 0) {
+        document.forms["fileupload"].submit();
+      }
+      
+    };
     $(function () {
         // Initialize the jQuery File Upload widget:
         $('#fileupload').fileupload({
@@ -111,27 +120,27 @@
           singleFileUploads: false
         })  .bind('fileuploadadd', function (e, data) {num_added++;})
             .bind('fileuploadsubmit', function (e, data) {
-            if(added < num_added)
-            {
-            if (added == 0)
-            all_data = data;
-            else
-            {
-            $.each(data['files'], function(i, file){
-            all_data['files'].push(file);
-            });
-            $.each(data['context'], function(i, context){
-            all_data['context'].push(context);
-            });
-            }
-            added++;
-            if (added == num_added)
-            {
-            added++;
-            all_data.submit();
-            }
-            return false;
-            }
+             if(added < num_added)
+                  {
+                  if (added == 0)
+                      all_data = data;
+                  else
+                      {
+                      $.each(data['files'], function(i, file){
+                      all_data['files'].push(file);
+                      });
+                      $.each(data['context'], function(i, context){
+                      all_data['context'].push(context);
+                      });
+                      }
+                  added++;
+                  if (added == num_added)
+                      {
+                      added++;
+                      all_data.submit();
+                      }
+                  return false;
+              }
             })
             .bind('fileuploadsend', function (e, data) {num_added = 0; added = 0;});
             
