@@ -1,6 +1,6 @@
 ### Multiform fileupload demo with Ruby on Rails 4, jquery-fileupload-rails, bootstrap 3 and paperclip
-When I was building my own project I get one problem: I needed one page, on which user creates a new models instance with params and add multiple photos, which are belong_to this model. Yes, I can use "multiple" tag for a file input, but I need to show user his photos before upload.   
-I really believe that it is a common usercase, but I didn't find any demo or tutorial to build thos with jquery-file-upload. So I built it myself.  
+When I was building my own project I got one problem: I needed one page, on which user creates a new models instance with params and add multiple photos, which are belong_to this model. Yes, I can use "multiple" tag for a file input, but I need to show user his photos before upload.   
+I really believe that it is a common usercase, but I didn't find any demo or tutorial to build this with jquery-file-upload. So I built it myself.  
 ## Gems:
  - paperclip
  - jquery-fileupload-rails
