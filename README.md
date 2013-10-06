@@ -20,3 +20,9 @@ I really believe that it is a common usercase, but I didn't find any demo or tut
  - rails g scaffold upload item_id integer
  - rails g paperclip upload upload
  - rake db:migrate
+ - fill models
+ - add uploads_attributes to items_controller (in params.require)
+ - add upload destroy to items_controller (in destroy method) (this makes photos to be deleted with item destroy)
+ - edit new_item view
+ - edit index_item view
+ 
