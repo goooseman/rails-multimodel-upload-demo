@@ -34,7 +34,7 @@
           <i class="glyphicon glyphicon-plus glyphicon-white"></i>
           <input type="file" class="form-control"  name="item[uploads_attributes][][upload]" multiple>Select
         </span>
-        <button type="submit" class="btn btn-primary start">
+        <button type="submit" class="btn btn-primary start" id="startbutton">
               <i class="glyphicon glyphicon-upload glyphicon-white"></i>
               <span>OK</span>
         </button>
@@ -112,6 +112,14 @@
       
     };
     $(function () {
+
+        $('#startbutton').click(function() {
+          if (num_added == 0) {
+            document.forms["fileupload"].submit();
+          }
+
+        });
+
         // Initialize the jQuery File Upload widget:
         $('#fileupload').fileupload({
           complete: function (e, data) {
